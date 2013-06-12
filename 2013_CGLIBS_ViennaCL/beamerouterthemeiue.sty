@@ -1,0 +1,153 @@
+% iue beamer outer theme
+% Author: Oskar Baumgartner
+
+
+\newdimen\beamer@sidebarwidth
+\newdimen\beamer@defaultsmallsidebarwidth
+\newdimen\beamer@headheight
+
+\beamer@sidebarwidth=1cm
+\beamer@defaultsmallsidebarwidth=1cm
+\beamer@headheight=0.3cm
+
+\DeclareOptionBeamer{width}{\beamer@sidebarwidth=#1}
+\DeclareOptionBeamer{height}{\beamer@headheight=#1}
+\ProcessOptionsBeamer
+
+
+\mode<presentation>
+
+\setbeamercolor*{author in head/foot}{parent=palette tertiary}
+\setbeamercolor*{title in head/foot}{parent=palette secondary}
+\setbeamercolor*{date in head/foot}{parent=palette primary}
+
+\setbeamercolor*{section in head/foot}{parent=palette tertiary}
+\setbeamercolor*{subsection in head/foot}{parent=palette primary}
+
+\defbeamertemplate*{footline}{iue theme}
+{
+  \leavevmode%
+  \@tempdimc=0pt
+  \@tempdima=\textwidth%
+  \ifdim\beamer@sidebarwidth>0pt
+  \advance\@tempdimc by \beamer@sidebarwidth
+  \else
+  \advance\@tempdimc by \beamer@defaultsmallsidebarwidth
+  \advance\@tempdima by -\@tempdimc%
+  \fi
+  \hbox{%
+  \ifdim\beamer@sidebarwidth>0pt%
+  \else
+  \begin{beamercolorbox}[wd=\@tempdimc,ht=2.25ex,dp=1ex,center]{sidebar left}%
+    \usebeamerfont{date in head/foot} \insertframenumber{} / \inserttotalframenumber
+  \end{beamercolorbox}%
+  \fi
+  \begin{beamercolorbox}[wd=.333333\@tempdima,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor~~(\insertshortinstitute)
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\@tempdima,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\@tempdima,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{} 
+  \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+\defbeamertemplate*{headline}{iue theme}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{section in head/foot}%
+    \usebeamerfont{section in head/foot}\insertsectionhead\hspace*{2ex}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,left]{subsection in head/foot}%
+    \usebeamerfont{subsection in head/foot}\hspace*{2ex}\insertsubsectionhead
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\newcommand{\mybold}[2]{\makebox{\makebox[1.5pt][l]{\usebeamercolor[fg]{titlelike shadow}{#1}}\raisebox{0.75pt}[0cm]{\usebeamercolor[fg]{#2}{#1}}}}
+
+
+\defbeamertemplate*{frametitle}{iue theme}
+{
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  % insert frame title
+\ifdim\beamer@headheight>0pt%
+  \hskip-\beamer@sidebarwidth%
+  \advance\textwidth by \beamer@sidebarwidth%
+\fi%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \begin{beamercolorbox}[sep=0.3cm,center,wd=\the\@tempdima]{frametitle}
+    \usebeamerfont{frametitle}%
+    \vbox{}\vskip-1ex%
+    \if@tempswa\else\csname beamer@ftecenter\endcsname\fi%
+    \strut\mybold{\insertframetitle}{frametitle}\strut\par%
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+      {\usebeamerfont{framesubtitle}\mybold{\insertframesubtitle}{framesubtitle}\strut\par}%
+      \fi
+    }%
+    \vskip-1ex%
+    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  \end{beamercolorbox}%
+%
+  \ifdim\beamer@headheight>0pt %
+  \advance\textwidth by -\beamer@sidebarwidth%
+%
+  {%
+  % create the title bar
+  \usebeamerfont{frametitle}%
+  \@tempdimc=0pt%
+  \ifdim\beamer@sidebarwidth>0pt%
+  \advance\@tempdimc by \beamer@sidebarwidth%
+  \else%
+  \advance\@tempdimc by \beamer@defaultsmallsidebarwidth%
+  \fi%
+  \vskip-\baselineskip%
+  \vskip\beamer@headheight%
+  \@tempdimb=\textwidth%
+  \advance\@tempdimb by\beamer@leftmargin%
+  \advance\@tempdimb by\beamer@rightmargin%
+  \hbox{%
+  \hskip-\beamer@leftmargin%
+  \hskip-\beamer@leftsidebar%
+  \begin{beamercolorbox}[sep=0pt,wd=\@tempdimc,ht=\beamer@headheight,dp=0pt]{title bar left}%
+  \end{beamercolorbox}%
+  \hskip\beamer@leftmargin%
+  \begin{beamercolorbox}[sep=0pt,wd=\@tempdimb,ht=\beamer@headheight,dp=0pt]{title bar}%
+  \end{beamercolorbox}}%
+  }%
+  \fi%
+}
+
+
+
+\ifdim\beamer@sidebarwidth>0pt
+
+ % Sidebar
+  \setbeamersize{sidebar width left=\beamer@sidebarwidth}
+  \defbeamertemplate*{sidebar left}{iue theme}
+  {
+    \vfill
+    \begin{beamercolorbox}[wd=\beamer@sidebarwidth,center]{sidebar left}
+      {\usebeamerfont{page number in sidebar}\insertframenumber{}}
+    \end{beamercolorbox}%
+    \vskip\baselineskip
+  }%
+  
+\fi
+
+
+%\setbeamertemplate{frametitle}[default][center]
+
+
+\setbeamersize{text margin left=1em,text margin right=1em, sidebar width left=\beamer@sidebarwidth}
+
+\mode
+<all>

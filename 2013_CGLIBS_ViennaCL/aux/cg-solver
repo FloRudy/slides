@@ -1,0 +1,15 @@
+#Time for ten CG iterations, repeated 10 times
+#Device     i7      i7-ViennaCL     GTX 470     Radeon 5850
+#float
+"i7 uBLAS"       0.29  0.29
+"i7 960"         0.12  0.085  
+"GTX 470"        0.052  0.052
+"HD 5850"        0.31    0.28
+
+
+#double
+"i7 uBLAS"     0.34  0.34
+"i7 960"       0.18    0.12 
+"GTX 470"      0.072  0.072  
+"HD 5850"      0.33    0.29
+

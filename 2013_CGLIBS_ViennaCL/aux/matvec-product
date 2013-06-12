@@ -1,0 +1,14 @@
+#Time for ten matrix-vector products
+#Device     i7      i7-ViennaCL     GTX 470     Radeon 5850
+#float
+"i7 uBLAS"      0.0247  0.0247
+"i7 960"        0.0044  0.0029 
+"GTX 470"       0.0018  0.0018
+"HD 5850"       0.0039  0.0038
+
+
+#double  
+"i7 uBLAS"      0.027021 0.027021
+"i7 960"        0.0072   0.0034
+"GTX 470"       0.0031   0.0031
+"HD 5850"       0.0050   0.0048

@@ -1,0 +1,14 @@
+#Time for ten inner products, 3 mio entries
+#Device     i7      i7-ViennaCL     GTX 470     Radeon 5850
+#float
+"i7 uBLAS"    0.087    0.087
+"i7 960"      0.015    0.015
+"GTX 470"     0.00290  0.0025 
+"HD 5850"     0.0057   0.0045
+
+
+#double
+"i7 uBLAS"    0.090    0.090
+"i7 960"      0.031    0.030
+"GTX 470"     0.00565  0.0055
+"HD 5850"     0.0076   0.0075

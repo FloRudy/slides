@@ -1,0 +1,52 @@
+% iue beamer color theme
+% Author: Oskar Baumgartner
+
+
+\mode<presentation>
+
+
+\definecolor{iueblue1}{rgb}{0.0, 0.2, 0.6}
+\definecolor{iueblue2}{rgb}{0.886, 0.937, 1.0}
+\definecolor{iueblue3}{rgb}{0.392, 0.729, 0.929}
+\definecolor{iuetransparent}{rgb}{0.392, 0.729, 0.929}
+
+\setbeamertemplate{bibliography item}[text]
+\setbeamercolor{palette primary}{bg=iueblue1, fg=white}
+\setbeamercolor{palette secondary}{bg=iueblue3!20!iueblue1, fg=white}
+\setbeamercolor{palette tertiary}{bg=iueblue3!100!iueblue1, fg=white}
+\setbeamercolor{palette quaternary}{bg=iueblue3, fg=white}
+\setbeamercolor{palette sidebar primary}{bg=iueblue1, fg=white}
+\setbeamercolor{palette sidebar secondary}{bg=iueblue3!20!iueblue1, fg=white}
+\setbeamercolor{palette sidebar tertiary}{bg=iueblue3!100!iueblue1, fg=white}
+\setbeamercolor{palette sidebar quaternary}{bg=iueblue3, fg=white}
+
+\setbeamercolor{item}{fg=iueblue1}
+
+\setbeamercolor*{title bar}{bg=iueblue1}
+\setbeamercolor*{title bar left}{bg=iueblue3}
+
+\setbeamercolor{author}{fg=iueblue1}
+
+\setbeamercolor{title}{fg=iueblue1}
+
+\setbeamercolor{titlelike}{fg=iueblue1,bg=white}
+\setbeamercolor{titlelike shadow}{parent=titlelike, fg=iueblue2!100!bg,bg=white}
+%\setbeamercolor{titlelike}{parent=palette quaternary}
+
+%\setbeamercolor{block title}{bg=iueblue1, fg=white} % blue block title boxes
+\setbeamercolor{block title}{fg=iueblue1,bg=}  % default
+\setbeamercolor{block title alerted}{use=alerted text,fg=white,bg=alerted text.fg!75!bg}
+\setbeamercolor{block title example}{use=example text,fg=white,bg=example text.fg!75!bg}
+
+\setbeamercolor{block body}{bg=} % for blue block title boxes
+\setbeamertemplate{blocks}[default]
+\setbeamercolor{block title}{bg=}
+\setbeamercolor{block body}{bg=}
+
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!25!bg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!25!bg}
+
+\setbeamercolor{sidebar left}{bg=iueblue2,fg=iueblue1}
+
+\mode
+<all>

@@ -1,0 +1,67 @@
+% iue beamer theme
+% Author: Oskar Baumgartner
+%
+% Options:
+% width  ... sidebar width
+% height ... topbar height
+% shadow ... true/false, shadows for boxes
+
+\PassOptionsToPackage{width=0.8cm}{beamerouterthemeiue}
+\PassOptionsToPackage{height=0.3cm}{beamerouterthemeiue}
+\PassOptionsToPackage{shadow=false}{beamerinnerthemeiue}
+
+\DeclareOptionBeamer{shadow}{\PassOptionsToPackage{shadow=#1}{beamerinnerthemeiue}}
+
+\DeclareOptionBeamer{width}{\PassOptionsToPackage{width=#1}{beamerouterthemeiue}}
+\DeclareOptionBeamer{height}{\PassOptionsToPackage{height=#1}{beamerouterthemeiue}}
+\ProcessOptionsBeamer
+
+
+\mode<presentation>
+
+\usecolortheme{iue}
+\useinnertheme{iue}
+\useoutertheme{iue}
+\usefonttheme[onlymath]{serif}
+
+% Comment out to get headline/footline
+\setbeamertemplate{headline}[default]
+\setbeamertemplate{footline}[default]
+
+% Bold fonts for titles
+\setbeamerfont{title}{shape=\bfseries}
+\setbeamerfont{frametitle}{shape=\bfseries}
+
+% increased toc font size
+\setbeamerfont{section in toc}{size=\large}
+
+% set page number size
+\setbeamerfont{page number in sidebar}{size=\scriptsize}
+
+% fonts
+\usepackage{times}
+
+% The skyline is defined as logo, comment out to remove skyline
+\pgfdeclareimage[width=0.7\paperwidth]{iueskyline}{pics/sky_iuecol-rep}
+\logo{\pgfuseimage{iueskyline}}
+
+% left title page logo
+\setbeamertemplate{title page logo left}{
+    \includegraphics[width=1.5cm]{pics/TU_Signet_CMYK}
+}
+
+% right title page logo
+\setbeamertemplate{title page logo right}{
+     \includegraphics[width=2cm]{pics/logo_px500} \\
+     \includegraphics[width=1.5cm]{pics/logo_asc}
+}
+
+% remove navigation symbols
+\setbeamertemplate{navigation symbols}{} 
+
+% remove itemize items
+\setbeamertemplate{itemize items}{}
+
+
+\mode
+<all>

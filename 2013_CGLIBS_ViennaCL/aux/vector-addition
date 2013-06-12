@@ -1,0 +1,14 @@
+#Time for ten vector additions, 3 mio entries each
+#Device     i7      i7-ViennaCL    GTX 470     Radeon 5850
+#float
+"i7 uBLAS"    0.034   0.034
+"i7 960"      0.102   0.10
+"GTX 470"     0.0088  0.0082
+"HD 5850"     0.068   0.066
+
+
+#double 
+"i7 uBLAS"     0.065   0.065
+"i7 960"       0.21   0.20
+"GTX 470"      0.0155  0.0154
+"HD 5850"      0.070   0.068

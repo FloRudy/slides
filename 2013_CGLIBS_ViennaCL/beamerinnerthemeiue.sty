@@ -1,0 +1,71 @@
+% iue beamer inner theme
+% Author: Oskar Baumgartner
+
+\DeclareOptionBeamer{shadow}[true]{\def\beamer@themeiue@shadow{#1}}
+\ExecuteOptionsBeamer{shadow=false}
+\ProcessOptionsBeamer
+
+\mode<presentation>
+
+
+\setbeamertemplate{blocks}[rounded][shadow=\beamer@themeiue@shadow]
+\setbeamertemplate{items}[default]
+\setbeamertemplate{sections/subsections in toc}[default]
+\setbeamertemplate{part page}[default][colsep=-4bp,rounded=true,shadow=\beamer@themeiue@shadow]
+
+% title page
+\defbeamertemplate*{title page}{iue theme}[1][colsep=-4bp,rounded=true,shadow=false]
+{
+  \vbox{}
+  \vfill
+  \newdimen\@tempdima%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by \beamer@leftsidebar %
+  \begin{center}%
+  \hskip-\beamer@leftsidebar%
+  \begin{minipage}[t]{\@tempdima}%
+    \begin{beamercolorbox}[sep=8pt,center,#1]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+  \end{minipage}%
+  \end{center}%
+% \vskip0.5em\par%
+  \hskip-\beamer@leftsidebar%
+  \begin{minipage}{\@tempdima}%
+   \begin{minipage}[c]{0.17\@tempdima}%
+        \begin{center}%
+            \usebeamertemplate{title page logo left}%
+        \end{center}%
+   \end{minipage}%
+   \begin{minipage}[c]{0.66\@tempdima}%
+    \begin{beamercolorbox}[sep=8pt,center,#1]{author}%
+      \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[sep=8pt,center,#1]{institute}%
+      \usebeamerfont{institute}\insertinstitute%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[sep=8pt,center,#1]{date}%
+      \usebeamerfont{date}\insertdate%
+    \end{beamercolorbox}%
+   \end{minipage}%
+   \begin{minipage}[c]{0.17\@tempdima}%
+     \begin{center}%
+       \usebeamertemplate{title page logo right}%
+     \end{center}%
+   \end{minipage}%
+   \end{minipage}%
+  %\vskip0.5em
+    {\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+ % }%
+  \vfill
+}
+
+
+
+\mode<all>
+

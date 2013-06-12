@@ -1,0 +1,5 @@
+#Time for ten CG iterations, repeated 10 times
+#Device     i7      i7-ViennaCL     GTX 470     Radeon 5850
+float       0.35875 0.141           0.0518      0.304
+double      0.40339 0.22            0.0686      0.314
+
